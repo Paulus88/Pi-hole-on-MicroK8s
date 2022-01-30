@@ -24,12 +24,20 @@ Wait for install to complete.
 ```
 microk8s status --wait-ready
 ```
+To add multiple devices to create the Pi-hole cluster follow: https://microk8s.io/docs/clustering
+Master device (node):
+```
+microk8s add-node
+```
+New device (node):
+```
+microk8s join 192.168.100.2:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05
+```
 Optional install plugins. I myself believe in standardization and GUI's help keep things to a certain degree of standard.
 ```
 microk8s enable portainer
 ```
 MicroK8s is setup and if you want to access the Portainer GUI just go to <http:// Device IP:30777>.
-
 ## Setup Pi-hole
 Create a **StorageClass** or just enable the microk8s-hostpath storage using Portainer found at the bottom of **Cluster** -> **Setup**.
 
