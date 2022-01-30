@@ -57,7 +57,7 @@ metadata:
   selfLink: /api/v1/namespaces/default/persistentvolumeclaims/pihole
 spec:
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnly
   resources:
     requests:
       storage: 512M
