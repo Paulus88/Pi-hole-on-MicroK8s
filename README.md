@@ -6,7 +6,7 @@ I am sharing my YAML for those who have a normal home network and are looking fo
 * Some experience and understanding of DNS and DHCP.
 * Give device(s) for this tutorial a static IP. (as device is responsible to lease addresses first make sure it gets an address outside the DHCP range)
 
-Preferably
+Preferable
 * At least 2 devices that support a linux distro.
 ## Setup MicroK8s
 Install Snapcraft.
