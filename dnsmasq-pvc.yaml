@@ -57,7 +57,7 @@ metadata:
   selfLink: /api/v1/namespaces/default/persistentvolumeclaims/dnsmasq
 spec:
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnly
   resources:
     requests:
       storage: 128M
