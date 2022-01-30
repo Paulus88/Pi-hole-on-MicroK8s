@@ -4,7 +4,7 @@ I have watched a lot of tutorials on running Pi-hole in a MicroK8s setup but non
 I am sharing my YAML for those who have a normal home network and are looking for a redundant and light weight version of our favorite DNS sinkhole with DHCP enabled.
 ## Requirements
 * Some experience and understanding of DNS and DHCP.
-* Give device(s) for this tutorial a static IP. (as device is responsible to lease addresses best make sure it gets an address outside the DHCP range)
+* Give device(s) for this tutorial a static IP. (as device is responsible to lease addresses first make sure it gets an address outside the DHCP range)
 
 Preferably
 * At least 2 devices that support a linux distro.
