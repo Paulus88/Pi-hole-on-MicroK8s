@@ -29,7 +29,7 @@ To add multiple devices to create the Pi-hole cluster follow: https://microk8s.i
 ```
 microk8s add-node
 ```
-* New device (node):
+* New device (node): _Setup MicroK8s first_
 ```
 microk8s join 192.168.100.2:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05
 ```
