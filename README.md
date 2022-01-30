@@ -27,7 +27,7 @@ Optional install plugins. I myself believe in standardization and GUI's help kee
 ```
 microk8s enable portainer
 ```
-MicroK8s is setup and if you want to access the Portainer GUI just go to <http://Device IP:30777>.
+MicroK8s is setup and if you want to access the Portainer GUI just go to <http:// Device IP:30777>.
 
 ## Setup Pi-hole
 Create a **StorageClass** or just enable the microk8s-hostpath storage using Portainer found at the bottom of **Cluster** -> **Setup**.
@@ -41,7 +41,7 @@ Now your ready to deploy Pi-hole.
 ```
 microk8s kubectl apply -f https://raw.githubusercontent.com/Paulus88/Pi-hole-MicroK8s/main/pihole.yaml
 ```
-Vola Pi-hole is now accessable on port 8053: <http://Device IP:8053>.
+Vola Pi-hole is now accessable on port 8053: <http:// Device IP:8053>.
 ## What makes this version of Pi-hole different from other tutorials?
 **Affinity**
 ```
