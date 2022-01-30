@@ -44,42 +44,6 @@ metadata:
                 .: {}
                 f:env:
                   .: {}
-                  k:{"name":"DHCP_ACTIVE"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
-                  k:{"name":"DHCP_END"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
-                  k:{"name":"DHCP_IPv6"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
-                  k:{"name":"DHCP_LEASETIME"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
-                  k:{"name":"DHCP_ROUTER"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
-                  k:{"name":"DHCP_START"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
-                  k:{"name":"DHCP_rapid_commit"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
-                  k:{"name":"DNSMASQ_LISTENING"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
-                  k:{"name":"PIHOLE_DNS_"}:
-                    .: {}
-                    f:name: {}
-                    f:value: {}
                   k:{"name":"WEB_PORT"}:
                     .: {}
                     f:name: {}
@@ -212,24 +176,6 @@ spec:
             topologyKey: kubernetes.io/hostname
       containers:
       - env:
-        - name: PIHOLE_DNS_
-          value: 1.1.1.1;1.0.0.1;2606:4700:4700::1111;2606:4700:4700::1001
-        - name: DHCP_ROUTER
-          value: <DHCP Gateway/Your Router IP example 192.168.0.1>
-        - name: DHCP_LEASETIME
-          value: "8"
-        - name: DHCP_IPv6
-          value: "true"
-        - name: DHCP_rapid_commit
-          value: "true"
-        - name: DNSMASQ_LISTENING
-          value: all
-        - name: DHCP_START
-          value: <DHCP End IP example 192.168.0.10>
-        - name: DHCP_END
-          value: <DHCP End IP example 192.168.0.254>
-        - name: DHCP_ACTIVE
-          value: "true"
         - name: WEB_PORT
           value: "8053"
         image: pihole/pihole:latest
