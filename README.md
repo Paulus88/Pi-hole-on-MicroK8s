@@ -131,7 +131,7 @@ Copy settings between Pi-hole pods, here are some possibilities.
 
 Keep your Pi-hole machines outside your DHCP Range.
 
-Example: Give Pihole devices static IP's: 192.168.100.2 and 192.168.100.3 / Start DHCP Range at 192.168.100.10 and end at 192.168.100.254.
+Example: Give Pi-hole devices static IP's: 192.168.100.2 and 192.168.100.3 / Start DHCP Range at 192.168.100.10 and end at 192.168.100.254.
 
 Why? This to avoid IP conflict that a internal device does not receive the same IP as your Pi-hole as DHCP does not recognize already assigned static IP's.
 
@@ -139,11 +139,11 @@ Why? This to avoid IP conflict that a internal device does not receive the same 
 
 Best order for a static DNS is external Pi-hole device first and localhost 127.0.0.1 as the last option.
 
-Why? because the localhost DNS service has not started yet at boot / Why even offer localhost? fastest questions are the ones you can answer yourself right?
+Why? because the localhost DNS service has not started yet at boot so that can cause some miner problems during startup / Why even offer localhost? fastest questions are the ones you can answer yourself right?
 
 **Environment Variables**
 
-You can also add variables to your applications YAML outside saving the config in the backend, Cloudflare example:
+You can also add variables to your applications YAML besides persisting the config in the backend, Cloudflare example:
 ```
       - env:
         - name: PIHOLE_DNS_
