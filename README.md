@@ -1,4 +1,4 @@
-# PiHole-MicroK8s
+# Pi-hole on MicroK8s
 I have watched a lot of tutorials on running Pi-hole in a MicroK8s setup but none of them resulted in a fully working solution that offered all the features in Pi-hole unless you do some tricks with a load balancer and you have a router/firewall that supported DHCP Relay.
 
 I am sharing my YAML for those who have a normal home network and are looking for a redundant and light weight version of our favorite DNS sinkhole with DHCP enabled.
