@@ -64,7 +64,7 @@ Vola Pi-hole is now accessable on port 8053: <http:// Device IP:8053>.
                 values:
                 - pihole
 ```
-This tells kubernetes that the Pi-hole pod must run on a linux machine and 2 pods with the pihole app are not allowed to run on the same device at one time.
+This tells Kubernetes that the Pi-hole pod must run on a linux machine and 2 pods with the pihole app are not allowed to run on the same device (node) at one time.
 
 **hostNetwork** in Docker known as --net=host.
 ```
@@ -160,3 +160,5 @@ microk8s kubectl -n kube-system edit configmaps coredns -o yaml
 KUBE_EDITOR="nano" microk8s kubectl -n kube-system edit configmaps coredns -o yaml
 ```
 Here you can change the IP's to your Pi-hole devices.
+
+Special thanks to Pi-hole https://pi-hole.net/, Canonical https://snapcraft.io/ | https://microk8s.io/ and pralor https://hub.docker.com/u/pralor for even making these solutions possible!
