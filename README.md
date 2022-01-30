@@ -25,11 +25,11 @@ Wait for install to complete.
 microk8s status --wait-ready
 ```
 To add multiple devices to create the Pi-hole cluster follow: https://microk8s.io/docs/clustering
-Master device (node):
+* Master device (node):
 ```
 microk8s add-node
 ```
-New device (node):
+* New device (node):
 ```
 microk8s join 192.168.100.2:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05
 ```
