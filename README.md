@@ -114,7 +114,7 @@ microk8s kubectl cp 03-pihole-option-dhcp.conf <some-namespace>/<some-pod>:/etc/
 #or directly to the microk8s-hostpath Persistent Volume.
 cp 03-pihole-option-dhcp.conf /var/snap/microk8s/common/default-storage/default-dnsmasq-pvc-<bunch-of-letters-numbers>/03-pihole-option-dhcp.conf
 ```
-Now (re)enable DHCP in Pi-hole or redeploy your Pi-hole app and it dnsmasq will pick up this change.
+Now (re)enable DHCP in Pi-hole or redeploy your Pi-hole app and dnsmasq will pick up this change.
 
 On a Windows Device on your network preform an ipconfig /renew and with ipconfig /all you should now see both your Pi-hole devices as DNS Servers:
 
