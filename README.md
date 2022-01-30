@@ -133,4 +133,30 @@ Keep your Pi-hole machines outside your DHCP Range.
 
 Example: Give Pihole devices static IP's: 192.168.100.2 and 192.168.100.3 / Start DHCP Range at 192.168.100.10 and end at 192.168.100.254.
 
-Why? This to avoid IP conflict that a internal device does not receive the same IP as a DHCP lease that your Pi-hole devices is already using.
+Why? This to avoid IP conflict that a internal device does not receive the same IP as your Pi-hole as DHCP does not recognize already assigned static IP's.
+
+**DNS**
+
+Best order for a static DNS is external Pi-hole device first and localhost 127.0.0.1 as the last option.
+
+Why? because the localhost DNS service has not started yet at boot / Why even offer localhost? fastest questions are the ones you can answer yourself right?
+
+**Environment Variables**
+
+You can also add variables to your applications YAML outside saving the config in the backend, Cloudflare example:
+```
+      - env:
+        - name: PIHOLE_DNS_
+          value: 1.1.1.1;1.0.0.1;2606:4700:4700::1111;2606:4700:4700::1001
+```
+See https://hub.docker.com/r/pihole/pihole for all variables.
+
+**CoreDNS**
+
+You can also point the Kubernetes CoreDNS to your Pi-hole devices by editing the IP's using the following command:
+```
+microk8s kubectl -n kube-system edit configmaps coredns -o yaml
+#nano
+KUBE_EDITOR="nano" microk8s kubectl -n kube-system edit configmaps coredns -o yaml
+```
+Here you can change the IP's to your Pi-hole devices.
