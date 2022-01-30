@@ -1,0 +1,265 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.portainer.kubernetes.application.name: pihole
+    io.portainer.kubernetes.application.stack: pihole
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:io.portainer.kubernetes.application.name: {}
+          f:io.portainer.kubernetes.application.stack: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector: {}
+        f:strategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxSurge: {}
+            f:maxUnavailable: {}
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:app: {}
+              f:io.portainer.kubernetes.application.name: {}
+          f:spec:
+            f:affinity:
+              .: {}
+              f:nodeAffinity:
+                .: {}
+                f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:podAntiAffinity:
+                .: {}
+                f:requiredDuringSchedulingIgnoredDuringExecution: {}
+            f:containers:
+              k:{"name":"pihole"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"DHCP_ACTIVE"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DHCP_END"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DHCP_IPv6"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DHCP_LEASETIME"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DHCP_ROUTER"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DHCP_START"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DHCP_rapid_commit"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DNSMASQ_LISTENING"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"PIHOLE_DNS_"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"WEB_PORT"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:resources: {}
+                f:securityContext:
+                  .: {}
+                  f:capabilities:
+                    .: {}
+                    f:add: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+            f:dnsPolicy: {}
+            f:hostNetwork: {}
+            f:imagePullSecrets:
+              .: {}
+              k:{"name":"registry-1"}: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"pihole"}:
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/etc/dnsmasq.d"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/etc/pihole"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:volumes:
+              .: {}
+              k:{"name":"dnsmasq"}:
+                .: {}
+                f:name: {}
+                f:persistentVolumeClaim:
+                  .: {}
+                  f:claimName: {}
+              k:{"name":"pihole"}:
+                .: {}
+                f:name: {}
+                f:persistentVolumeClaim:
+                  .: {}
+                  f:claimName: {}
+    manager: Mozilla
+    operation: Update
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updatedReplicas: {}
+    manager: kubelite
+    operation: Update
+    subresource: status
+  name: pihole
+  namespace: default
+  selfLink: /apis/apps/v1/namespaces/default/deployments/pihole
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pihole
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 100%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: pihole
+        io.portainer.kubernetes.application.name: pihole
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/os
+                operator: In
+                values:
+                - linux
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - pihole
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - env:
+        - name: PIHOLE_DNS_
+          value: 1.1.1.1;1.0.0.1;2606:4700:4700::1111;2606:4700:4700::1001
+        - name: DHCP_ROUTER
+          value: <DHCP Gateway/Your Router IP example 192.168.0.1>
+        - name: DHCP_LEASETIME
+          value: "8"
+        - name: DHCP_IPv6
+          value: "true"
+        - name: DHCP_rapid_commit
+          value: "true"
+        - name: DNSMASQ_LISTENING
+          value: all
+        - name: DHCP_START
+          value: <DHCP End IP example 192.168.0.10>
+        - name: DHCP_END
+          value: <DHCP End IP example 192.168.0.254>
+        - name: DHCP_ACTIVE
+          value: "true"
+        - name: WEB_PORT
+          value: "8053"
+        image: pihole/pihole:latest
+        imagePullPolicy: Always
+        name: pihole
+        resources: {}
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+            - NET_BIND_SERVICE
+            - NET_RAW
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/dnsmasq.d
+          name: dnsmasq
+        - mountPath: /etc/pihole
+          name: pihole
+      dnsPolicy: ClusterFirst
+      hostNetwork: true
+      imagePullSecrets:
+      - name: registry-1
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      volumes:
+      - name: dnsmasq
+        persistentVolumeClaim:
+          claimName: dnsmasq
+      - name: pihole
+        persistentVolumeClaim:
+          claimName: pihole
