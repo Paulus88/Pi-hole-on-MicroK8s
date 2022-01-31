@@ -152,7 +152,7 @@ Why? because the localhost DNS service has not started yet at boot so that can c
 
 **Environment Variables**
 
-You can also add variables to your applications YAML besides persisting the config in the backend, Cloudflare example:
+You can also add variables to your applications YAML besides persisting the config in a backend storage, Cloudflare example:
 ```
       - env:
         - name: PIHOLE_DNS_
