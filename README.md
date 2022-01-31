@@ -102,7 +102,7 @@ All the needed capabilities to take full advantages of Pi-hole on your network.
 ```
 The Persistent Volume mounts to save all your Pi-hole data even if pod is redeployed.
 ## Redundancy
-You thought we were done right? Working Pi-hole, yeeey but what if one device fails?
+You thought we were done right? Working Pi-hole, yeah! but what if one device fails?
 
 **DNS Redundancy**
 
