@@ -72,6 +72,7 @@ Voila Pi-hole is now accessable on port 8053: <http:// Device IP:8053>.
                 operator: In
                 values:
                 - pihole
+            topologyKey: kubernetes.io/hostname
 ```
 This tells Kubernetes that the Pi-hole pod must run on a linux machine and 2 pods with the pihole app are not allowed to run on the same device (node) at one time.
 
