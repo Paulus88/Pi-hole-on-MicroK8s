@@ -52,7 +52,7 @@ Now your ready to deploy Pi-hole. (Please note this installs in the **default** 
 ```
 microk8s kubectl apply -f https://raw.githubusercontent.com/Paulus88/Pi-hole-MicroK8s/main/pihole.yaml
 ```
-Vola Pi-hole is now accessable on port 8053: <http:// Device IP:8053>.
+Voila Pi-hole is now accessable on port 8053: <http:// Device IP:8053>.
 ## What makes this version of Pi-hole different from other tutorials?
 **Affinity**
 ```
