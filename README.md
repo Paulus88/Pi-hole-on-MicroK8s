@@ -116,7 +116,7 @@ dhcp-option-force=42,<NTP IP/DNS>
 ```
 Were option 6 = all your Pi-hole DNS enabled devices and optional option 42 = NTP server(s).
 
-These add DHCP options to your lease and send them to all internal devices, see all possible DHCP Options: https://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml
+These add DHCP Options to your lease and send them to all internal devices, see all possible DHCP Options: https://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml
 
 Once your happy with your 03-pihole-option-dhcp.conf upload it to your pod(s):
 ```
@@ -132,7 +132,7 @@ On a Windows Device on your network preform an ipconfig /renew and with ipconfig
 
 **Storage Redundancy**
 
-Copy settings between Pi-hole pods, here are some possibilities.
+Copy settings between Pi-hole devices, here are some possibilities.
 * Use Pi-hole Teleporter from 1 device to the rest.
 * Mount your Kubernetes StorageClass to an external shared storage or GlusterFS https://www.gluster.org/ solution. See: https://kubernetes.io/docs/concepts/storage/storage-classes/
 * Do what I did and credits to Bart Simons https://bartsimons.me/sync-folders-and-files-on-linux-with-rsync-and-inotify/ use ssh, inotify and rsync and sync the /var/snap/microk8s/common/default-storage on every device with each other. (keep in mind root is used for ssh and optional I added the --delete option to the rsync command)
