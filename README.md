@@ -16,7 +16,7 @@ sudo apt install snapd
 #Redhat
 sudo yum install snapd
 ```
-Install MicroK8s (Optional if your like me and want to play with the latest toys add --edge)
+Install MicroK8s _(Optional if your like me and want to play with the latest toys add --edge)_
 ```
 sudo snap install microk8s --classic
 ```
