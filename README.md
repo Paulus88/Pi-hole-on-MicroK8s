@@ -24,10 +24,9 @@ Wait for install to complete.
 ```
 microk8s status --wait-ready
 ```
-To add multiple devices to create the Pi-hole cluster follow: https://microk8s.io/docs/clustering
+To add multiple devices to create the Pi-hole cluster read my short instruction below or for a more detailed instruction go to: https://microk8s.io/docs/clustering
 
-_Optional add device (node) name and ip to each others /etc/hosts file so they can resolve each other by name._
-* Master device (node):
+* Master device (node): _Optional add device (node) name and ip to each others /etc/hosts file so they can resolve each other by name._
 ```
 microk8s add-node
 ```
