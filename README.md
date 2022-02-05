@@ -135,7 +135,7 @@ On a Windows Device on your network preform an ipconfig /renew and with ipconfig
 Copy settings between Pi-hole devices, here are some possibilities.
 * Use Pi-hole Teleporter from 1 device to the rest.
 * Mount your Kubernetes StorageClass to an external shared storage or GlusterFS https://www.gluster.org/ solution. See: https://kubernetes.io/docs/concepts/storage/storage-classes/
-* Do what I did and credits to Bart Simons https://bartsimons.me/sync-folders-and-files-on-linux-with-rsync-and-inotify/ use ssh, inotify and rsync and sync the /var/snap/microk8s/common/default-storage on every device with each other. (keep in mind root is used for ssh and optional I added the --delete option to the rsync command)
+* Do what I did and credits to Bart Simons https://bartsimons.me/sync-folders-and-files-on-linux-with-rsync-and-inotify/ use ssh, inotify and rsync and sync the /var/snap/microk8s/common/default-storage on every device with each other. (keep in mind root is used for ssh and optional I added the --del option to the rsync command to clean up)
 ## Tips
 **DHCP Range**
 
