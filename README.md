@@ -82,6 +82,14 @@ This tells Kubernetes that the Pi-hole pod must run on a linux machine and 2 pod
 ```
 This is actually the most important component of this setup, it means you do not need a DHCP Relay supported router/firewall to allow Pi-hole to do DHCP from a container/pod and it throws the pod directly onto your internal network.
 
+**WEB_PORT**
+```
+        - name: WEB_PORT
+          value: "8053"
+```
+The standard Pi-hole HTTP port 80 is probably already in use or will be used by other solutions on your node therefore I run Pi-hole on port 8053 to avoid any conflicts.
+<http:// Device IP:8053>
+
 **securityContext**
 ```
         securityContext:
