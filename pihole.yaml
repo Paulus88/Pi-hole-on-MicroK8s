@@ -178,6 +178,8 @@ spec:
       - env:
         - name: WEB_PORT
           value: "8053"
+        - name: WEBPASSWORD
+          value: "Welcome"
         image: pihole/pihole:latest
         imagePullPolicy: Always
         name: pihole
