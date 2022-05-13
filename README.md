@@ -51,7 +51,10 @@ Now your ready to deploy Pi-hole. (Please note this installs in the **default** 
 ```
 microk8s kubectl apply -f https://raw.githubusercontent.com/Paulus88/Pi-hole-MicroK8s/main/pihole.yaml
 ```
-Voila Pi-hole is now accessable on port 8053: <http:// Device IP:8053>.
+Voila Pi-hole is now accessable on port 8053: <http:// Device IP:8053>
+Default Password: Welcome
+**CHANGE THE PASSWORD AND REMOVE WEBPASSWORD ENVIRONMENT VARIABLE SEE BELOW!**
+
 ## What makes this version of Pi-hole different from other tutorials?
 **Affinity**
 ```
@@ -89,6 +92,13 @@ This is actually the most important component of this setup, it means you do not
 ```
 The standard Pi-hole HTTP port 80 is probably already in use or will be used by other solutions on your node therefore I run Pi-hole on port 8053 to avoid any conflicts.
 <http:// Device IP:8053>
+
+**WEBPASSWORD**
+```
+        - name: WEBPASSWORD
+          value: "Welcome"
+```
+This adds the Default Password, please **REMOVE ONCE DONE AND CHANGE THE PASSWORD!**
 
 **securityContext**
 ```
@@ -141,6 +151,7 @@ On a Windows Device on your network preform an ipconfig /renew and with ipconfig
 **Storage Redundancy**
 
 Copy settings between Pi-hole devices, here are some possibilities.
+Keep in mind once the WEBPASSWORD Environment Variable is removed this will sync your password otherwise you will have to manage each pod password manually.
 * Use Pi-hole Teleporter from 1 device to the rest.
 * Mount your Kubernetes StorageClass to an external shared storage or GlusterFS https://www.gluster.org/ solution. See: https://kubernetes.io/docs/concepts/storage/storage-classes/
 * Do what I did and credits to Bart Simons https://bartsimons.me/sync-folders-and-files-on-linux-with-rsync-and-inotify/ use ssh, inotify and rsync and sync the /var/snap/microk8s/common/default-storage on every device with each other. (keep in mind root is used for ssh and optional I added the --del option to the rsync command to clean up)
@@ -179,4 +190,4 @@ KUBE_EDITOR="nano" microk8s kubectl -n kube-system edit configmaps coredns -o ya
 ```
 Here you can change the IP's to your Pi-hole devices.
 
-Special thanks to Pi-hole https://pi-hole.net/, Canonical https://snapcraft.io/ | https://microk8s.io/ and pralor https://hub.docker.com/u/pralor for even making these solutions possible!
+Special thanks to Pi-hole https://pi-hole.net/ and Canonical https://snapcraft.io/ | https://microk8s.io/ for even making these solutions possible!
