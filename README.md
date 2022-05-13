@@ -100,7 +100,7 @@ The standard Pi-hole HTTP port 80 is probably already in use or will be used by 
         - name: WEBPASSWORD
           value: "Welcome"
 ```
-This adds the Default Password, please **REMOVE ONCE DONE AND CHANGE THE PASSWORD!**
+This adds the Default Password, **PLEASE REMOVE ONCE DONE AND CHANGE THE PASSWORD!**
 
 See **_[Storage Redundancy](#redundancy)_** about syncing password between pods.
 
