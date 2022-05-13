@@ -52,9 +52,10 @@ Now your ready to deploy Pi-hole. (Please note this installs in the **default** 
 microk8s kubectl apply -f https://raw.githubusercontent.com/Paulus88/Pi-hole-MicroK8s/main/pihole.yaml
 ```
 Voila Pi-hole is now accessable on port 8053: <http:// Device IP:8053>
+
 Default Password: Welcome
 
-**CHANGE THE PASSWORD AND REMOVE WEBPASSWORD ENVIRONMENT VARIABLE SEE BELOW!**
+**CHANGE THE PASSWORD AND REMOVE WEBPASSWORD ENVIRONMENT VARIABLE _[SEE BELOW](#what-makes-this-version-of-pi-hole-different-from-other-tutorials)_!**
 
 ## What makes this version of Pi-hole different from other tutorials?
 **Affinity**
@@ -100,6 +101,8 @@ The standard Pi-hole HTTP port 80 is probably already in use or will be used by 
           value: "Welcome"
 ```
 This adds the Default Password, please **REMOVE ONCE DONE AND CHANGE THE PASSWORD!**
+
+See **_[Storage Redundancy](#redundancy)_** about syncing password between pods.
 
 **securityContext**
 ```
@@ -152,7 +155,8 @@ On a Windows Device on your network preform an ipconfig /renew and with ipconfig
 **Storage Redundancy**
 
 Copy settings between Pi-hole devices, here are some possibilities.
-Keep in mind once the WEBPASSWORD Environment Variable is removed this will sync your password otherwise you will have to manage each pod password manually.
+
+Keep in mind once the WEBPASSWORD Environment Variable is removed this will sync your password otherwise you will have to manage each pods Pi-hole password manually.
 * Use Pi-hole Teleporter from 1 device to the rest.
 * Mount your Kubernetes StorageClass to an external shared storage or GlusterFS https://www.gluster.org/ solution. See: https://kubernetes.io/docs/concepts/storage/storage-classes/
 * Do what I did and credits to Bart Simons https://bartsimons.me/sync-folders-and-files-on-linux-with-rsync-and-inotify/ use ssh, inotify and rsync and sync the /var/snap/microk8s/common/default-storage on every device with each other. (keep in mind root is used for ssh and optional I added the --del option to the rsync command to clean up)
