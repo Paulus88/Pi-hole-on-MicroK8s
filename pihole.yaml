@@ -48,6 +48,10 @@ metadata:
                     .: {}
                     f:name: {}
                     f:value: {}
+                  k:{"name":"WEBPASSWORD"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
                 f:image: {}
                 f:imagePullPolicy: {}
                 f:name: {}
