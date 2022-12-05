@@ -4,6 +4,7 @@ kind: PersistentVolumeClaim
     volume.kubernetes.io/storage-provisioner: microk8s.io/hostpath
 metadata:
   name: dnsmasq
+  namespace: default
   selfLink: /api/v1/namespaces/default/persistentvolumeclaims/pihole
 spec:
   accessModes:
