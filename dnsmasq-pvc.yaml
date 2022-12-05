@@ -1,11 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
+metadata:
   annotations:
     volume.kubernetes.io/storage-provisioner: microk8s.io/hostpath
-metadata:
   name: dnsmasq
   namespace: default
-  selfLink: /api/v1/namespaces/default/persistentvolumeclaims/pihole
 spec:
   accessModes:
   - ReadWriteMany
