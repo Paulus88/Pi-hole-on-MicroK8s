@@ -4,7 +4,7 @@ metadata:
   name: s
 spec:
   capacity:
-    storage: 20G
+    storage: 128M
   accessModes:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
