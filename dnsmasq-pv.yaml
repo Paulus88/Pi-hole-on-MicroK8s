@@ -19,14 +19,3 @@ spec:
           operator: In
           values:
           - linux
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: dnsmasq
-spec:
-  storageClassName: s
-  accessModes:
-  - ReadWriteMany
-  resources:
-    requests:
-      storage: 128M
