@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: dnsmasq
 spec:
-  storageClassName: microk8s-hostpath
+  storageClassName: s
   accessModes:
   - ReadWriteMany
   resources:
