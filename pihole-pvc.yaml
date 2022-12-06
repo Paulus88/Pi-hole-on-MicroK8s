@@ -1,14 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  annotations:
-    volume.kubernetes.io/storage-provisioner: microk8s.io/hostpath
   name: pihole
 spec:
+  storageClassName: microk8s-hostpath
   accessModes:
   - ReadWriteMany
   resources:
     requests:
       storage: 512M
-  storageClassName: microk8s-hostpath
-  volumeMode: Filesystem
