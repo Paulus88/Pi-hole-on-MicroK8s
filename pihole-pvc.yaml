@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: pihole
 spec:
-  storageClassName: microk8s-hostpath
+  storageClassName: s
   accessModes:
   - ReadWriteMany
   resources:
