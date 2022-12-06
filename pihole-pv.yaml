@@ -19,14 +19,3 @@ spec:
           operator: In
           values:
           - linux
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pihole
-spec:
-  storageClassName: s
-  accessModes:
-  - ReadWriteMany
-  resources:
-    requests:
-      storage: 512M
