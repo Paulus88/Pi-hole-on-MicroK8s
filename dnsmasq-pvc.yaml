@@ -4,7 +4,7 @@ metadata:
   name: dnsmasq
 spec:
   accessModes:
-  - RWX
+  - ReadWriteMany
   resources:
     requests:
       storage: 128M
