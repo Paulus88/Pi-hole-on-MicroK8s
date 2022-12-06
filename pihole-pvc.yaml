@@ -4,7 +4,6 @@ metadata:
   annotations:
     volume.kubernetes.io/storage-provisioner: microk8s.io/hostpath
   name: pihole
-  namespace: default
 spec:
   accessModes:
   - ReadWriteMany
