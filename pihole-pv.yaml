@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: 512M
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
   storageClassName: s
   local:
